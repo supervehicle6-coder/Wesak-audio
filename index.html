@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>පින්බර වෙසක්%E0%B6%B8%E0%B6%82%E0%B6%9C%E0%B6%B2%E0%B7%8A%E0%B6%BA%E0%B6%9A%E0%B7%8A %E0%B7%80%E0%B7%9A%E0%B7%90!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@500;800&family=Noto+Serif+Sinhala:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Noto Serif Sinhala', serif;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* පසුබිම් සජීවීකරණය (Background Animation) */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* ඔබේ GitHub එකවුන්ට් එකෙන් සෘජුවම රූපය ලබාගනී */
+            background-image: url('https://raw.githubusercontent.com/supervehicle6-coder/Wesak-audio/main/vesak-image.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: gentleZoom 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes gentleZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        /* පසුබිම තද පැහැ ගැන්වීම (Overlay) */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.75));
+            z-index: 0;
+        }
+
+        /* ප්‍රධාන අන්තර්ගතය */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            overflow-y: auto;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 35px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* ප්‍රධාන සුභ පැතුම */
+        h1 {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 2.2rem;
+            color: #ffc107;
+            text-shadow: 0 2px 10px rgba(255, 193, 7, 0.5);
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* නම පෙන්වන කොටස */
+        .wisher-section {
+            margin: 20px 0;
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: #ddd;
+            margin-bottom: 5px;
+        }
+
+        #wisherName {
+            font-family: 'Abhaya Libre', serif;
+            font-size: 1.8rem;
+            color: #00ffcc;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(0, 255, 204, 0.4);
+            min-height: 35px;
+        }
+
+        /* නම ඇතුළත් කරන කොටස */
+        .input-section {
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .input-section label {
+            display: block;
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-family: 'Noto Serif Sinhala', serif;
+            font-size: 0.9rem;
+            outline: none;
+            text-align: center;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffc107;
+            background: rgba(255,255,255,0.15);
+        }
+
+        button.create-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #ffc107;
+            color: #000;
+            font-weight: bold;
+            font-family: 'Noto Serif Sinhala', serif;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button.create-btn:hover {
+            background: #ffe082;
+            transform: translateY(-2px);
+        }
+
+        /* Share බොත්තම් */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-whatsapp:hover { background-color: #20ba5a; transform: translateY(-2px); }
+
+        .btn-facebook { background-color: #1877F2; }
+        .btn-facebook:hover { background-color: #166fe5; transform: translateY(-2px); }
+
+        /* සංගීත පාලක බොත්තම (Audio Controller) */
+        .audio-control {
+            margin-top: 30px;
+        }
+
+        .music-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #aaa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+        }
+
+        .music-btn:hover {
+            color: #fff;
+            border-color: #ffc107;
+        }
+
+        .music-btn.playing {
+            color: #ffc107;
+            border-color: #ffc107;
+            box-shadow: 0 0 8px rgba(255,193,7,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="card">
+            
+            <h1>ඔබ සැමට පින්බර <br>වෙසක් මංගල්‍යයක් වේවා!</h1>
+            
+            <div class="wisher-section">
+                <p class="intro-text">මෙම උදාර සුභ පැතුම එක් කරන්නේ,</p>
+                <div id="wisherName">ඔබේ නම මෙතැනට</div>
+            </div>
+
+            <div class="input-section">
+                <label for="nameInput">ඔබේ නම දමා අලුත් සුභපැතුමක් සාදාගන්න:</label>
+                <div class="input-group">
+                    <input type="text" id="nameInput" placeholder="ඔබේ නම මෙතන ලියන්න..." maxlength="30">
+                    <button class="create-btn" onclick="updateName()">සාදන්න</button>
+                </div>
+            </div>
+
+            <div class="share-buttons">
+                <a id="whatsappShare" class="share-btn btn-whatsapp" target="_blank" onclick="shareWhatsApp()">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Share
+                </a>
+                <a id="facebookShare" class="share-btn btn-facebook" target="_blank" onclick="shareFacebook()">
+                    <i class="fab fa-facebook-f"></i> Facebook Share
+                </a>
+            </div>
+
+            <div class="audio-control">
+                <button id="musicToggle" class="music-btn" onclick="toggleMusic()">
+                    <i id="musicIcon" class="fas fa-music"></i> <span id="musicText">පසුබිම් සංගීතය (Off)</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <audio id="vesakAudio" loop>
+        <source src="https://raw.githubusercontent.com/supervehicle6-coder/Wesak-audio/main/beg-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // URL එකෙන් නම කියවා ගැනීම (යමෙක් Share කල පසු වෙනත් අයෙකුට නම පෙනීමට)
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nameParam = urlParams.get('name');
+            if (nameParam) {
+                const decodedName = decodeURIComponent(nameParam);
+                document.getElementById('wisherName').innerText = decodedName;
+                document.getElementById('nameInput').value = decodedName;
+            }
+        }
+
+        // නම Update කිරීමේ Function එක
+        function updateName() {
+            const inputName = document.getElementById('nameInput').value.trim();
+            if (inputName !== "") {
+                document.getElementById('wisherName').innerText = inputName;
+                
+                // URL එක අලුත් නම සමඟ Update කිරීම
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?name=' + encodeURIComponent(inputName);
+                window.history.pushState({path:newUrl}, '', newUrl);
+            } else {
+                alert("කරුණාකර නමක් ඇතුළත් කරන්න.");
+            }
+        }
+
+        // සින්දුව On/Off කිරීම
+        const audio = document.getElementById('vesakAudio');
+        const musicBtn = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    musicBtn.classList.add('playing');
+                    musicIcon.className = "fas fa-pause";
+                    musicText.innerText = "පසුබිම් සංගීතය (On)";
+                }).catch(error => {
+                    console.log("Audio Playback එකට බ්‍රවුසර් එකෙන් අවසර නැත.");
+                });
+            } else {
+                audio.pause();
+                musicBtn.classList.remove('playing');
+                musicIcon.className = "fas fa-music";
+                musicText.innerText = "පසුබිම් සංගීතය (Off)";
+            }
+        }
+
+        // WhatsApp Share කිරීම
+        function shareWhatsApp() {
+            const currentUrl = window.location.href;
+            const wisher = document.getElementById('wisherName').innerText;
+            const text = encodeURIComponent("*" + wisher + "* ඔබට පින්බර වෙසක් මංගල්‍යයක් ප්‍රාර්ථනා කරයි! ඔබේ නම දමා මේ වෙසක් කාඩ්පත මෙතැනින් සාදාගන්න: " + currentUrl);
+            document.getElementById('whatsappShare').href = "https://api.whatsapp.com/send?text=" + text;
+        }
+
+        // Facebook Share කිරීම
+        function shareFacebook() {
+            const currentUrl = encodeURIComponent(window.location.href);
+            document.getElementById('facebookShare').href = "https://www.facebook.com/sharer/sharer.php?u=" + currentUrl;
+        }
+    </script>
+</body>
+</html>
